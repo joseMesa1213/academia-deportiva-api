@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estrellas del Milenio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #e0e0e0; padding: 2rem; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    header h1 { font-size: 2rem; font-weight: 600; color: #fff; }
+    header p { font-size: 14px; color: #888; margin-top: 6px; }
+    .status-bar { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; }
+    .status-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .status-text { font-size: 13px; color: #22c55e; font-weight: 500; }
+    .base-url { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 10px 16px; font-family: monospace; font-size: 13px; color: #60a5fa; text-align: center; margin-bottom: 2rem; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2.5rem; }
+    .stat-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 16px; text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 600; color: #22c55e; }
+    .stat-label { font-size: 12px; color: #666; margin-top: 4px; }
+    .section { margin-bottom: 2rem; }
+    .section-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-bottom: 10px; border-left: 3px solid #22c55e; padding-left: 10px; }
+    .endpoint-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 12px 16px; margin-bottom: 6px; display: flex; align-items: center; gap: 12px; transition: border-color 0.2s; }
+    .endpoint-card:hover { border-color: #3a3a3a; }
+    .method { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 5px; min-width: 52px; text-align: center; font-family: monospace; }
+    .get    { background: #052e16; color: #22c55e; }
+    .post   { background: #172554; color: #60a5fa; }
+    .put    { background: #451a03; color: #fb923c; }
+    .delete { background: #450a0a; color: #f87171; }
+    .path { font-family: monospace; font-size: 13px; color: #d1d5db; flex: 1; }
+    .desc { font-size: 12px; color: #6b7280; white-space: nowrap; }
+    footer { text-align: center; font-size: 12px; color: #444; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #1f1f1f; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏟️ Academia Deportiva API</h1>
+  <p>REST API — Sistema de gestión deportiva</p>
+  <div class="status-bar">
+    <div class="status-dot"></div>
+    <span class="status-text">API en línea</span>
+  </div>
+</header>
+
+<div class="base-url">Base URL: https://academia-deportiva-api.onrender.com</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Módulos</div></div>
+  <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Endpoints</div></div>
+  <div class="stat-card"><div class="stat-num">20</div><div class="stat-label">Tablas</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Catálogos</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/estados</span><span class="desc">Listar estados</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/roles</span><span class="desc">Listar roles</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/generos</span><span class="desc">Listar géneros</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/tipos-documento</span><span class="desc">Listar tipos de documento</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/clasificaciones</span><span class="desc">Listar clasificaciones</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/categorias</span><span class="desc">Listar categorías</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/posiciones</span><span class="desc">Listar posiciones</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/tipos-producto</span><span class="desc">Listar tipos de producto</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/catalogos/variantes-producto</span><span class="desc">Listar variantes de producto</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Personas</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/personas</span><span class="desc">Listar personas</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/personas/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/personas</span><span class="desc">Crear persona</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/personas/:id</span><span class="desc">Actualizar persona</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/personas/:id</span><span class="desc">Desactivar persona</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Profesores</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/profesores</span><span class="desc">Listar profesores</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/profesores/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/profesores</span><span class="desc">Crear profesor</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/profesores/:id</span><span class="desc">Actualizar profesor</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/profesores/:id</span><span class="desc">Desactivar profesor</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Deportistas</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/deportistas</span><span class="desc">Listar deportistas</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/deportistas/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/deportistas</span><span class="desc">Crear deportista</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/deportistas/:id</span><span class="desc">Actualizar deportista</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/deportistas/:id</span><span class="desc">Desactivar deportista</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Productos</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/productos</span><span class="desc">Listar productos</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/productos/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/productos</span><span class="desc">Crear producto</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/productos/:id</span><span class="desc">Actualizar producto</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/productos/:id</span><span class="desc">Eliminar producto</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Proveedores</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/proveedores</span><span class="desc">Listar proveedores</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/proveedores/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/proveedores</span><span class="desc">Crear proveedor</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/proveedores/:id</span><span class="desc">Actualizar proveedor</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/proveedores/:id</span><span class="desc">Desactivar proveedor</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Compras</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/compras</span><span class="desc">Listar compras</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/compras/:id</span><span class="desc">Obtener compra con productos</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/compras</span><span class="desc">Crear compra</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/compras/:id</span><span class="desc">Actualizar compra</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/compras/:id</span><span class="desc">Desactivar compra</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/compras/productos</span><span class="desc">Agregar producto a compra</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/compras/productos/:id</span><span class="desc">Remover producto de compra</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Canchas</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/canchas</span><span class="desc">Listar canchas</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/canchas/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/canchas</span><span class="desc">Crear cancha</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/canchas/:id</span><span class="desc">Actualizar cancha</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/canchas/:id</span><span class="desc">Desactivar cancha</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Entrenamientos</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/entrenamientos</span><span class="desc">Listar entrenamientos</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/entrenamientos/:id</span><span class="desc">Obtener con profesores</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/entrenamientos</span><span class="desc">Crear entrenamiento</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/entrenamientos/:id</span><span class="desc">Actualizar entrenamiento</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/entrenamientos/:id</span><span class="desc">Desactivar entrenamiento</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/entrenamientos/profesores</span><span class="desc">Asignar profesor</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/entrenamientos/profesores/:id</span><span class="desc">Remover profesor</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Asistencias</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/asistencias</span><span class="desc">Listar asistencias</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/asistencias/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/asistencias/entrenamiento/:id</span><span class="desc">Por entrenamiento</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/asistencias/deportista/:id</span><span class="desc">Por deportista</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/asistencias</span><span class="desc">Registrar asistencia</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/asistencias/:id</span><span class="desc">Actualizar asistencia</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/asistencias/:id</span><span class="desc">Desactivar asistencia</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Matrículas</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/matriculas</span><span class="desc">Listar matrículas</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/matriculas/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/matriculas/deportista/:id</span><span class="desc">Por deportista</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/matriculas</span><span class="desc">Crear matrícula</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/matriculas/:id</span><span class="desc">Actualizar matrícula</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/matriculas/:id</span><span class="desc">Desactivar matrícula</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Mensualidades</div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/mensualidades</span><span class="desc">Listar mensualidades</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/mensualidades/:id</span><span class="desc">Obtener por ID</span></div>
+  <div class="endpoint-card"><span class="method get">GET</span><span class="path">/api/mensualidades/deportista/:id</span><span class="desc">Por deportista</span></div>
+  <div class="endpoint-card"><span class="method post">POST</span><span class="path">/api/mensualidades</span><span class="desc">Crear mensualidad</span></div>
+  <div class="endpoint-card"><span class="method put">PUT</span><span class="path">/api/mensualidades/:id</span><span class="desc">Actualizar mensualidad</span></div>
+  <div class="endpoint-card"><span class="method delete">DELETE</span><span class="path">/api/mensualidades/:id</span><span class="desc">Desactivar mensualidad</span></div>
+</div>
+
+<footer>
+  <p>Academia Deportiva API — Node.js + Express + PostgreSQL</p>
+  <p style="margin-top: 6px;">Desplegado en Render · BD en Supabase</p>
+</footer>
+
+</body>
+</html>

@@ -7,6 +7,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(express.static('public'))
 app.use('/api/catalogos', require('./src/routes/catalogos.routes'))
 app.use('/api/personas', require('./src/routes/persona.routes'))
 app.use('/api/profesores', require('./src/routes/profesor.routes'))
