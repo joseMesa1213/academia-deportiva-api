@@ -1,10 +1,12 @@
 const router = require('express').Router()
 const c = require('../controllers/persona.controller')
+const { personaRules } = require('../middlewares/persona.validators')
+const validate = require('../middlewares/validate')
 
 router.get('/', c.getPersonas)
 router.get('/:id', c.getPersonaById)
-router.post('/', c.createPersona)
-router.put('/:id', c.updatePersona)
+router.post('/', personaRules, validate, c.createPersona)
+router.put('/:id', personaRules, validate, c.updatePersona)
 router.delete('/:id', c.deletePersona)
 
 module.exports = router
